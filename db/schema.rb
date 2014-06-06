@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140606082752) do
+ActiveRecord::Schema.define(version: 20140606230707) do
 
   create_table "employer_addresses", force: true do |t|
     t.string   "address_line_one", limit: 50
@@ -65,6 +65,16 @@ ActiveRecord::Schema.define(version: 20140606082752) do
 
   create_table "schools", force: true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "supervisors", force: true do |t|
+    t.string   "first_name",           limit: 25
+    t.string   "last_name",            limit: 25
+    t.string   "position",             limit: 50
+    t.string   "signature_image_path"
+    t.integer  "employer_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
