@@ -1,0 +1,41 @@
+<%= form_for(@minor) do |f| %>
+  <% if @minor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@minor.errors.count, "error") %> prohibited this minor from being saved:</h2>
+
+      <ul>
+      <% @minor.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :FirstName %><br>
+    <%= f.text_field :FirstName %>
+  </div>
+  <div class="field">
+    <%= f.label :LastName %><br>
+    <%= f.text_field :LastName %>
+  </div>
+  <div class="field">
+    <%= f.label :SSN %><br>
+    <%= f.number_field :SSN %>
+  </div>
+  <div class="field">
+    <%= f.label :DOB %><br>
+    <%= f.date_select :DOB %>
+  </div>
+  <div class="field">
+    <%= f.label :Age %><br>
+    <%= f.number_field :Age %>
+  </div>
+  <div class="field">
+    <%= f.label :Grade %><br>
+    <%= f.number_field :Grade %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

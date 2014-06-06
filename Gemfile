@@ -3,8 +3,7 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.0'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
@@ -21,10 +20,10 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
-gem 'sdoc', '~> 0.4.0',          group: :doc
+# gem 'sdoc', '~> 0.4.0',          group: :doc
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-gem 'spring',        group: :development
+# gem 'spring',        group: :development
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -38,3 +37,34 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+# bootstrap
+gem "therubyracer"
+gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+gem "twitter-bootstrap-rails"
+
+group :development, :test do
+  gem 'sqlite3'
+  gem 'rspec-rails'
+  # gem 'guard-rspec', '2.5.0'
+  # gem 'spork-rails', '4.0.0'
+  # gem 'guard-spork', '1.5.0'
+  gem 'childprocess'
+  gem 'spring'
+end
+
+group :test do
+  gem 'selenium-webdriver'
+  gem 'capybara'
+  # gem 'growl', '1.0.3'
+  gem 'factory_girl_rails'
+end
+
+group :doc do
+  # gem 'sdoc', '0.3.20', require: false
+  gem 'sdoc', '~> 0.4.0'
+end
+
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+end

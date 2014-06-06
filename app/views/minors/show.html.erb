@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Firstname:</strong>
+  <%= @minor.FirstName %>
+</p>
+
+<p>
+  <strong>Lastname:</strong>
+  <%= @minor.LastName %>
+</p>
+
+<p>
+  <strong>Ssn:</strong>
+  <%= @minor.SSN %>
+</p>
+
+<p>
+  <strong>Dob:</strong>
+  <%= @minor.DOB %>
+</p>
+
+<p>
+  <strong>Age:</strong>
+  <%= @minor.Age %>
+</p>
+
+<p>
+  <strong>Grade:</strong>
+  <%= @minor.Grade %>
+</p>
+
+<%= link_to 'Edit', edit_minor_path(@minor) %> |
+<%= link_to 'Back', minors_path %>
