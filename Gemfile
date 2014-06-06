@@ -44,7 +44,7 @@ gem "twitter-bootstrap-rails"
 
 group :development, :test do
   gem 'sqlite3'
-  gem 'rspec-rails'
+  gem 'rspec-rails', '~> 3.0.0'
   # gem 'guard-rspec', '2.5.0'
   # gem 'spork-rails', '4.0.0'
   # gem 'guard-spork', '1.5.0'
