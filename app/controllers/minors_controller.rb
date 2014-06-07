@@ -69,6 +69,6 @@ class MinorsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def minor_params
-      params.require(:minor).permit(:FirstName, :LastName, :SSN, :DOB, :Age, :Grade)
+      params.require(:minor).permit(:first_name, :last_name, :ssn, :dob, :age, :grade)
     end
 end
