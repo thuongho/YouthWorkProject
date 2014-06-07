@@ -68,3 +68,6 @@ group :production do
   gem 'pg'
   gem 'rails_12factor'
 end
+
+# authentication with devise
+gem 'devise'

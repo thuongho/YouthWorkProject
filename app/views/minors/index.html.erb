@@ -1,35 +1,47 @@
-<h1>Listing minors</h1>
-
-<table>
+<%- model_class = Minor -%>
+<div class="page-header">
+  <!-- <h1>%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1> -->
+  <h1>Students</h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Ssn</th>
-      <th>Dob</th>
-      <th>Age</th>
-      <th>Grade</th>
-      <th colspan="3"></th>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:first_name) %></th>
+      <th><%= model_class.human_attribute_name(:last_name) %></th>
+      <th><%= model_class.human_attribute_name(:ssn) %></th>
+      <th><%= model_class.human_attribute_name(:dob) %></th>
+      <th><%= model_class.human_attribute_name(:age) %></th>
+      <th><%= model_class.human_attribute_name(:grade) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @minors.each do |minor| %>
       <tr>
-        <td><%= minor.FirstName %></td>
-        <td><%= minor.LastName %></td>
-        <td><%= minor.SSN %></td>
-        <td><%= minor.DOB %></td>
-        <td><%= minor.Age %></td>
-        <td><%= minor.Grade %></td>
-        <td><%= link_to 'Show', minor %></td>
-        <td><%= link_to 'Edit', edit_minor_path(minor) %></td>
-        <td><%= link_to 'Destroy', minor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to minor.id, minor_path(minor) %></td>
+        <td><%= minor.first_name %></td>
+        <td><%= minor.last_name %></td>
+        <td><%= minor.ssn %></td>
+        <td><%= minor.dob %></td>
+        <td><%= minor.age %></td>
+        <td><%= minor.grade %></td>
+        <td><%=l minor.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_minor_path(minor), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      minor_path(minor),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Minor', new_minor_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_minor_path,
+            :class => 'btn btn-primary' %>
