@@ -40,7 +40,10 @@ gem 'jbuilder', '~> 2.0'
 # bootstrap
 gem "therubyracer"
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
-gem "twitter-bootstrap-rails"
+gem "twitter-bootstrap-rails", :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git', branch: 'bootstrap3'
+# gem "twitter-bootstrap-rails", branch: 'bootstrap3'
+# gem 'bootstrap-on-rails'
+
 
 group :development, :test do
   gem 'sqlite3'

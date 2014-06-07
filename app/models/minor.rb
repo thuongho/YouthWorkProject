@@ -5,3 +5,4 @@ class Minor < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_one :minor_address
 end
+

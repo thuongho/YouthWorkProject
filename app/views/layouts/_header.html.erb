@@ -20,7 +20,7 @@
                 <li><%= link_to "Settings", edit_minor_path(current_minor) %></li>
                 <li class="divider"></li>
                 <li>
-                  <%= link_to "Sign out", destroy_minor_session_path %>
+                  <%= link_to "Sign out", destroy_minor_session_path, method: :delete %>
                 </li>
               </ul>
             </li>

@@ -1,5 +1,7 @@
 class MinorsController < ApplicationController
   before_action :set_minor, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_minor!, only: [:edit, :update, :destroy]
+
 
   # GET /minors
   # GET /minors.json
@@ -24,6 +26,7 @@ class MinorsController < ApplicationController
   # POST /minors
   # POST /minors.json
   def create
+    redirect_to minor_path(current_minor.id) if minor_signed_in?
     @minor = Minor.new(minor_params)
 
     respond_to do |format|
@@ -65,10 +68,11 @@ class MinorsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_minor
       @minor = Minor.find(params[:id])
+      redirect_to(root_url) unless current_minor?(@minor)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def minor_params
-      params.require(:minor).permit(:first_name, :last_name, :ssn, :dob, :age, :grade)
+      params.require(:minor).permit(:first_name, :last_name, :ssn, :dob, :grade)
     end
 end
