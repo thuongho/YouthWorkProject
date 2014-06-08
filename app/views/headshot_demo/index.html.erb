@@ -1,3 +1,4 @@
+<div class="span8 offset2">
 <h1>Headshot Demo</h1>
 
 <%= headshot_default_config(Rails.application.config.session_options[:key], headshot_capture_path) %>
@@ -9,3 +10,4 @@
 <%= headshot_snap_button %> 
 
 <%= link_to 'Stop Camera', camera_path, class: 'btn btn-warning' %>
+</div>

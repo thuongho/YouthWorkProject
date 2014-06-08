@@ -44,7 +44,7 @@
             </h4>
           </div>
           <div id="checkup" class="collapse panel-collapse">
-            <div class="panel-body">
+            <div class="panel-body center-it">
               <p>Some Employer Here</p>
                <%= headshot_default_config(Rails.application.config.session_options[:key], headshot_capture_path) %>
 
@@ -52,7 +52,7 @@
 
                 <br/>
 
-                <%= headshot_snap_button %>
+                <%= headshot_snap_button %> <%= link_to "Stop Camera", class: "btn btn-warning" %>
               <p></p>
             </div>
           </div>

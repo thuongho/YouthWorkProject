@@ -1,11 +1,12 @@
 <div class="row">
   <!-- <div class="col-lg-2 col-sm-1">Left Side</div> -->
   <div class="col-lg-8 col-sm-10 span8 offset2">
-    <div class="page-header">
+    <div class="page-header work-permit">
     <h1>Applying for a work permit?</h1>
     </div>
   
-    <div class="hero-unit">
+    <div class="hero-unit content">
+    <%= image_tag("three-students-smiling.jpg", class: 'thumbnail three-students') %>
     <h3>The following students do NOT need work permits:</h3>
       <ul>
         <li>Those who have graduated from high school, regardless of age</li>
@@ -21,10 +22,11 @@
 <div class="row">
 <!-- <div class="container"> -->
   <div class="col-lg-4 col-sm-1"></div>
-  <div class="col-lg-4 col-sm-10 span8 offset2">
+  <div class="col-lg-4 col-sm-10 span8 offset2 work-submit">
 
   <%= link_to 'Apply for work form', new_user_registration_path, class: 'btn btn-warning btn-block' %>
   </div>
+  <br>
   <div class="col-lg-4 col-sm-1"></div>
 <!-- </div> -->
 </div>

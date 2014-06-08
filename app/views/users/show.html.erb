@@ -1,7 +1,8 @@
 <%- model_class = User -%>
 <div class="span8 offset2">
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+  <!-- <h1>%=t '.title', :default => model_class.model_name.human.titleize %></h1> -->
+  <%= image_tag("friends-in-the-hall.jpg", class: 'friends') %>
 </div>
 
 
@@ -23,4 +24,5 @@
 <%= link_to 'Add Employer', new_employer_path, class: 'btn btn-warning btn-block' %>
 
 <%= link_to 'Add School', new_school_path, class: 'btn btn-warning btn-block' %>
+<br><br>
 </div>
