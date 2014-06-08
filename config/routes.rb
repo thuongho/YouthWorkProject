@@ -1,14 +1,15 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :users
-
-  resources :employers
+  resources :users do
+    resources :minors
+  end
+  resources :employers  
 
   resources :schools
 
   # get 'static_pages/index'
 
-  resources :minors
+  
 
   root 'static_pages#index'
 

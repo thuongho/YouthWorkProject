@@ -1,20 +1,24 @@
 class MinorsController < ApplicationController
-  before_action :set_minor, only: [:show, :edit, :update, :destroy]
+  before_action :set_minor, only: [ :show, :edit, :update, :destroy]
+  before_action :get_current_user
+  before_action :populate_grade, only: [:new, :edit]
 
   # GET /minors
   # GET /minors.json
   def index
-    @minors = Minor.all
+    # @minor = @user.minors.all
+    redirect_to user_path(@user.id)
   end
 
   # GET /minors/1
   # GET /minors/1.json
   def show
+    @minor = @user.minors.find(params[:id])
   end
 
   # GET /minors/new
   def new
-    @minor = Minor.new
+    @minor = @user.minors.new
   end
 
   # GET /minors/1/edit
@@ -24,11 +28,11 @@ class MinorsController < ApplicationController
   # POST /minors
   # POST /minors.json
   def create
-    @minor = Minor.new(minor_params)
+    @minor = @user.minors.new(minor_params)
 
     respond_to do |format|
       if @minor.save
-        format.html { redirect_to @minor, notice: 'Minor was successfully created.' }
+        format.html { render :show, notice: 'Minor was successfully created.' }
         format.json { render :show, status: :created, location: @minor }
       else
         format.html { render :new }
@@ -42,7 +46,7 @@ class MinorsController < ApplicationController
   def update
     respond_to do |format|
       if @minor.update(minor_params)
-        format.html { redirect_to @minor, notice: 'Minor was successfully updated.' }
+        format.html { redirect_to :show, notice: 'Minor was successfully updated.' }
         format.json { render :show, status: :ok, location: @minor }
       else
         format.html { render :edit }
@@ -62,13 +66,23 @@ class MinorsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
     def set_minor
-      @minor = Minor.find(params[:id])
+      @minor = @user.minors.find(params[:id])
+    end
+
+    # Use callbacks to share common setup or constraints between actions.
+    def get_current_user
+      @user = User.find(params[:user_id])
+      # @user = current_user
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def minor_params
-      params.require(:minor).permit(:FirstName, :LastName, :SSN, :DOB, :Age, :Grade)
+      params.require(:minor).permit(:first_name, :last_name, :ssn, :dob, :grade)
+    end
+
+    def populate_grade
+      @grades = [5,6,7,8,9,10,11,12,"n/a"]
     end
 end
