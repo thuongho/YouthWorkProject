@@ -9,6 +9,7 @@
             <div class="panel-body">
               <table class="table table-striped">
                 <thread>
+                  <div class="pull-left">
                   <% @user.minors.each do |f| %>
                     <tr>
                       <th>First Name: </th>
@@ -27,9 +28,10 @@
                       <td><%= f.grade %></td>
                     </tr>
                   <% end %>
+                  </div>
                 </thread>
               </table>
-              <p><a href="#" class="btn btn-info">Read more >></a></p>
+              <p><%= link_to "Edit Student", edit_user_minor_path(current_user.id, current_user.minors.id), class: 'btn btn-info' %></p>
             </div>
           </div>
         </div>
@@ -42,8 +44,8 @@
           </div>
           <div id="checkup" class="collapse panel-collapse">
             <div class="panel-body">
-              <p>Regular checkups are a key factor in pet wellness, and can often unearth problems that could lead to health issues down the road.</p>
-              <p><a href="#" class="btn btn-info">Read more >></a></p>
+              <p>Some Employer Here</p>
+              <p><a href="#" class="btn btn-success">Camera >></a></p>
             </div>
           </div>
         </div> 
@@ -56,8 +58,8 @@
           </div>
           <div id="senior" class="collapse panel-collapse">
             <div class="panel-body">
-              <p>Senior pets generally require more medical attention than their younger counterparts, just as senior humans do. So when is a pet considered “senior”? </p>
-              <p><a href="#" class="btn btn-info">Read more >></a></p>
+              <p>School Info Here </p>
+              <p><a href="#" class="btn btn-success">Camera >></a></p>
             </div>
           </div>
         </div>
