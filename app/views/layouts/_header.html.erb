@@ -7,10 +7,26 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </a>
-      <a class="brand" href="#">Student Work Permit</a>
+      <%= link_to "Student Work Permit", root_path, class: 'brand' %>
       <div class="nav-collapse pull-right">
-        <ul class="nav">
-          <li><%= link_to "Login", "#" %></li>
+        <ul class="nav pull-right">
+          <% if user_signed_in? %>
+            <li id="fat-menu" class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <%= current_user.email %> <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <li><%= link_to "Profile", current_user %></li>
+                <li><%= link_to "Settings", edit_user_path(current_user) %></li>
+                <li class="divider"></li>
+                <li>
+                  <%= link_to "Sign out", destroy_minor_session_path, method: :delete %>
+                </li>
+              </ul>
+            </li>
+          <% else %>
+            <li><%= link_to "Sign in", new_minor_session_path %></li>
+          <% end %>
         </ul>
       </div>
     </div>
