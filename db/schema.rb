@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140608104507) do
+ActiveRecord::Schema.define(version: 20140608130415) do
 
   create_table "employer_addresses", force: true do |t|
     t.string   "address_line_one", limit: 50
@@ -58,21 +58,9 @@ ActiveRecord::Schema.define(version: 20140608104507) do
     t.integer  "grade"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
     t.integer  "user_id"
   end
 
-  add_index "minors", ["email"], name: "index_minors_on_email", unique: true
-  add_index "minors", ["reset_password_token"], name: "index_minors_on_reset_password_token", unique: true
   add_index "minors", ["user_id"], name: "index_minors_on_user_id"
 
   create_table "school_addresses", force: true do |t|

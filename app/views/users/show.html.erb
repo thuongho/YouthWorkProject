@@ -12,14 +12,9 @@
   <dt><strong>%= model_class.human_attribute_name(:reset_password_token) %>:</strong></dt>
   <dd>%= @user.reset_password_token %></dd>
 </dl> -->
-<table class="table table-striped">
-  <thread>
-  <%= @user %>
-    <tr>
-      
-    </tr>
-  </thread>
-</table>
+
+
+<%= render 'accordion' %>
 
 <div class="form-actions center-it">
   <%= link_to t('.edit', :default => t("helpers.links.edit")),

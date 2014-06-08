@@ -1,0 +1,64 @@
+<div class="accordion-group" id="accordion">
+        <div class="panel panel-default">
+          <div class="accordion-heading">
+            <h4 class="panel-title">
+              <a href="#vaccine" class="accordion-toggle btn btn-default" data-toggle="collapse" data-parent="#accordion"><span class="glyphicon glyphicon-pushpin"></span> Student Information</a>
+            </h4>
+          </div>
+          <div id="vaccine" class="panel-collapse collapse in">
+            <div class="panel-body">
+              <table class="table table-striped">
+                <thread>
+                  <% @user.minors.each do |f| %>
+                    <tr>
+                      <th>First Name: </th>
+                      <td><%= f.first_name %></td>
+                    </tr>
+                    <tr>
+                      <th>Last Name: </th>
+                      <td><%= f.last_name %></td>
+                    </tr>
+                    <tr>
+                      <th>Age: </th>
+                      <td><%= f.age %></td>
+                    </tr>
+                    <tr>
+                      <th>Grade: </th>
+                      <td><%= f.grade %></td>
+                    </tr>
+                  <% end %>
+                </thread>
+              </table>
+              <p><a href="#" class="btn btn-info">Read more >></a></p>
+            </div>
+          </div>
+        </div>
+       
+        <div class="panel panel-default">
+          <div class="accordion-heading">
+            <h4 class="panel-title">
+              <a href="#checkup" class="accordion-toggle btn btn-default" data-toggle="collapse" data-parent="#accordion"><span class="glyphicon glyphicon-ok"></span> Employer</a>
+            </h4>
+          </div>
+          <div id="checkup" class="collapse panel-collapse">
+            <div class="panel-body">
+              <p>Regular checkups are a key factor in pet wellness, and can often unearth problems that could lead to health issues down the road.</p>
+              <p><a href="#" class="btn btn-info">Read more >></a></p>
+            </div>
+          </div>
+        </div> 
+       
+        <div class="accordion panel-default">
+          <div class="accordion-heading">
+            <h4 class="panel-title">
+              <a href="#senior" class="accordion-toggle btn btn-default" data-toggle="collapse" data-parent="#accordion"><span class="glyphicon glyphicon-heart"></span> School</a>
+            </h4>
+          </div>
+          <div id="senior" class="collapse panel-collapse">
+            <div class="panel-body">
+              <p>Senior pets generally require more medical attention than their younger counterparts, just as senior humans do. So when is a pet considered “senior”? </p>
+              <p><a href="#" class="btn btn-info">Read more >></a></p>
+            </div>
+          </div>
+        </div>
+      </div> <!-- end of accordian -->  
