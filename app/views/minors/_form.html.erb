@@ -14,22 +14,24 @@
   <div class="control-group">
     <%= f.label :ssn, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :ssn, :class => 'text_field' %>
+      <%= f.text_field :ssn, :class => 'text_field' %> <i>(format 123-12-1234)</i>
     </div>
   </div>
   <div class="control-group">
     <%= f.label :dob, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :dob, :class => 'text_field' %>
+      <%= f.text_field :dob, :class => 'text_field' %> <i>(format: mm-dd-yyyy)</i>
     </div>
   </div>
   
   <div class="control-group">
     <%= f.label :grade, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :grade, :class => 'text_field' %>
+      <!-- %= f.text_field :grade, :class => 'text_field' %> -->
+      <%= f.collection_select :grade, @grades, :to_s, :to_s, include_blank: true %>
     </div>
   </div>
+
 
   <!-- <div class="control-group">
     <! %= f.label :age, :class => 'control-label' %> -->

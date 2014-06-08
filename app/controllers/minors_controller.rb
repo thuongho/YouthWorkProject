@@ -1,6 +1,7 @@
 class MinorsController < ApplicationController
   before_action :set_minor, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_minor!, only: [:edit, :update, :destroy]
+  before_action :populate_grade, only: [:new, :edit]
 
 
   # GET /minors
@@ -31,7 +32,7 @@ class MinorsController < ApplicationController
 
     respond_to do |format|
       if @minor.save
-        format.html { redirect_to @minor, notice: 'Minor was successfully created.' }
+        format.html { redirect_to @minor, notice: 'Your account was successfully created.' }
         format.json { render :show, status: :created, location: @minor }
       else
         format.html { render :new }
@@ -45,7 +46,7 @@ class MinorsController < ApplicationController
   def update
     respond_to do |format|
       if @minor.update(minor_params)
-        format.html { redirect_to @minor, notice: 'Minor was successfully updated.' }
+        format.html { redirect_to @minor, notice: '#{@minor.first_name}\'s account was successfully updated.' }
         format.json { render :show, status: :ok, location: @minor }
       else
         format.html { render :edit }
@@ -59,7 +60,7 @@ class MinorsController < ApplicationController
   def destroy
     @minor.destroy
     respond_to do |format|
-      format.html { redirect_to minors_url, notice: 'Minor was successfully destroyed.' }
+      format.html { redirect_to minors_url, notice: 'Your account was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -74,5 +75,9 @@ class MinorsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def minor_params
       params.require(:minor).permit(:first_name, :last_name, :ssn, :dob, :grade)
+    end
+
+    def populate_grade
+      @grades = [5,6,7,8,9,10,11,12,"n/a"]
     end
 end

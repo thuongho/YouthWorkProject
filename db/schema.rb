@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140607023355) do
+ActiveRecord::Schema.define(version: 20140607215646) do
 
   create_table "employer_addresses", force: true do |t|
     t.string   "address_line_one", limit: 50
@@ -29,6 +29,14 @@ ActiveRecord::Schema.define(version: 20140607023355) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "jobs", force: true do |t|
+    t.integer "minor_id"
+    t.integer "employer_id"
+  end
+
+  add_index "jobs", ["employer_id"], name: "index_jobs_on_employer_id"
+  add_index "jobs", ["minor_id"], name: "index_jobs_on_minor_id"
 
   create_table "minor_addresses", force: true do |t|
     t.string   "address_line_one", limit: 50
