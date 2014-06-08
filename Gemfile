@@ -70,3 +70,8 @@ group :production do
 end
 
 gem 'devise'
+
+# apple cam
+# gem 'capture_camera', '~> 0.0.2'
+
+gem 'headshot'

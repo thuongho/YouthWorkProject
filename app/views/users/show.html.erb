@@ -7,7 +7,10 @@
 
 <%= render 'accordion' %>
 
+
+
 <div class="form-actions center-it">
+<%= link_to "Camera", camera_path, class: 'btn btn-success' %>
   <%= link_to t('.edit', :default => t("helpers.links.edit")),
               edit_user_path(@user), :class => 'btn' %>
   <%= link_to t('.destroy', :default => t("helpers.links.destroy")),

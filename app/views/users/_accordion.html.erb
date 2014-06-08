@@ -27,11 +27,12 @@
                       <th>Grade: </th>
                       <td><%= f.grade %></td>
                     </tr>
-                  <% end %>
+                  
                   </div>
                 </thread>
               </table>
-              <p><%= link_to "Edit Student", edit_user_minor_path(current_user.id, current_user.minors.id), class: 'btn btn-info' %></p>
+              <!-- <p>%= link_to "Edit Student", [current_user, f], class: 'btn btn-info' %></p> -->
+              <% end %>
             </div>
           </div>
         </div>
@@ -45,7 +46,14 @@
           <div id="checkup" class="collapse panel-collapse">
             <div class="panel-body">
               <p>Some Employer Here</p>
-              <p><a href="#" class="btn btn-success">Camera >></a></p>
+               <%= headshot_default_config(Rails.application.config.session_options[:key], headshot_capture_path) %>
+
+                <%= headshot_camera %>
+
+                <br/>
+
+                <%= headshot_snap_button %>
+              <p></p>
             </div>
           </div>
         </div> 

@@ -61,6 +61,7 @@ GEM
       factory_girl (~> 4.4.0)
       railties (>= 3.0.0)
     ffi (1.9.3)
+    headshot (0.1.6)
     hike (1.2.3)
     i18n (0.6.9)
     jbuilder (2.0.7)
@@ -193,6 +194,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   devise
   factory_girl_rails
+  headshot
   jbuilder (~> 2.0)
   jquery-rails
   less-rails

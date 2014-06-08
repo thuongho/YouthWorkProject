@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  # get 'headshot_demo/index'
+
+  post "headshot/capture" => 'headshot#capture', :as => :headshot_capture
   devise_for :users
   resources :users do
     resources :minors
@@ -12,6 +15,8 @@ Rails.application.routes.draw do
   
 
   root 'static_pages#index'
+
+  match '/camera', to: 'headshot_demo#index', via: 'get'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
